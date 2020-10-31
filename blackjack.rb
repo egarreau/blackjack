@@ -20,7 +20,7 @@ class DeckOfCards
 
   def draw(number_of_cards)
     response = HTTParty.get("https://deckofcardsapi.com/api/deck/#{@id}/draw/?count=#{number_of_cards}")
-    cards = response["cards"]
+    cards = response['cards']
   end
 end
 
@@ -31,10 +31,10 @@ class Blackjack
     @deck = DeckOfCards.new
   end
 
-  def game
+  def play
     puts deal
     command = gets.chomp
-    if command == "hit"
+    if command == 'hit'
       puts hit
     end
   end
@@ -54,4 +54,4 @@ class Blackjack
   end
 end
 
-Blackjack.new.game
+Blackjack.new.play
